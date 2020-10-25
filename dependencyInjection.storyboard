@@ -1,0 +1,52 @@
+import Foundation
+// Dependency Injection: Simply injecting the dependencies (instance variables)
+
+// Benefits:
+// Responsibilities and requirements become more clear and transparent
+// unit testing using mock objects
+// ceperation of concerns
+// Louser coupling
+
+// Types:
+// Initializer injection
+// Property injection
+// method injection
+
+// Example 1.
+class B {
+}
+
+class A {
+    private let property: B //immutable
+    init(property: B) {
+        self.property = property
+    }
+}
+
+let b = B()
+let a = A(property: b) // injecting dependency
+
+// Example 2.
+
+class C {
+}
+
+class D {
+    var property: C? //mutable
+}
+
+
+let c = C()
+let d = D()
+d.property = c
+
+// Example 3.
+class E {
+}
+class F {
+//    Injecting dependency as an argument of a func
+    func someFunc(property: E)  {
+
+    }
+}
+
