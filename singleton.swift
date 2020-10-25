@@ -3,23 +3,23 @@ import Foundation
 // global access
 
 //EX. let defaultFileManager = FileManager.default
-let sharedNetworkManager = NetworkManager(baseUrl: "baseURL")
-class NetworkManager {
-    let baseUrl: String
+let sharedA = A(property: "some text")
+class A {
+    let property: String
     
-    init(baseUrl: String) {
-        self.baseUrl = baseUrl
+    init(property: String) {
+        self.property = property
     }
 }
 
-class Presenter {
-    func request() {
+class B {
+    func someFunc() {
         // global access
         //in Swift, global variables are initialized lazily
-        print(sharedNetworkManager)
+        print(sharedA)
         
         //multiple instances of the class can be instantiated
-        let sharedNetworkManager = NetworkManager(baseUrl: "other baseRL")
-        print(sharedNetworkManager)
+        let sharedA2 = A(property: "some text again")
+        print(sharedA2)
     }
 }
